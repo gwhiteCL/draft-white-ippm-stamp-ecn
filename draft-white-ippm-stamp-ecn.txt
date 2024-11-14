@@ -18,7 +18,8 @@ Abstract
    measurements between IP hosts, and has a facility for defining
    optional extensions.  This document defines a STAMP extension to
    enable the measurement of traversal of the ECN field between two
-   STAMP hosts.
+   STAMP hosts, and to enable measurement of paths that provide
+   differential treatment depending on the value of the ECN field.
 
 Status of This Memo
 
@@ -72,9 +73,10 @@ Table of Contents
    measurement of DSCP traversal, but only allows round-trip measurement
    of ECN traversal.  Since the ECN field is separately meaningful in
    each path direction, it is valuable to have the capability to perform
-   bi-directional measurements of ECN traversal.  In addition, bi-
-   directional traversal measurements are important to isolate traversal
-   issues for path remediation actions.
+   bi-directional measurements of ECN traversal and to have the abilty
+   to measure path characteristics that depend on the ECN codepoint.  In
+   addition, bi-directional traversal measurements are important to
+   isolate traversal issues for path remediation actions.
 
 1.1.  Requirements Language
 
