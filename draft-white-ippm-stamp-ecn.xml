@@ -150,12 +150,13 @@
       <t>
       A session-reflector that receives a test packet with the DSCP and ECN Traversal TLV <bcp14>MUST</bcp14> include the DSCP and ECN Traversal TLV in the reflected test packet.</t>
 
-      <t>The session-reflector <bcp14>MUST</bcp14> copy the value of the DSCP and ECN fields of the IP header of the received STAMP test packet into the DSCP2 field and EC2 field in the reflected test packet.
-        Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy to verify whether the CoS corresponding to the value of the DSCP1 field is permitted in the domain.
-        If the corresponding CoS is permitted in the domain, the session-reflector <bcp14>MUST</bcp14> set the DSCP field's value in the IP header of the reflected test packet equal to the value of the DSCP1 field of the received test packet.
-        If the corresponding CoS is not permitted in the domain, the session-reflector <bcp14>MUST</bcp14> use the DSCP value of the received STAMP packet and set the value of the RP field to 1.
-        Upon receiving the reflected packet, if the value of the RP field is 0, the session-sender will save the DSCP and ECN values for analysis of the CoS in the reverse direction.
-        If the value of the RP field in the received reflected packet is 1, only CoS in the forward direction can be analyzed.
+      <t>The session-reflector <bcp14>MUST</bcp14> copy the value of the DSCP and ECN fields of the IP header of the received STAMP test packet into the DSCP2 field and EC2 field in the reflected test packet.</t>
+
+      <t>Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy to verify whether the CoS corresponding to the value of the DSCP1 field is permitted in the domain.
+      If the corresponding CoS is permitted in the domain, the session-reflector <bcp14>MUST</bcp14> set the DSCP field's value in the IP header of the reflected test packet equal to the value of the DSCP1 field of the received test packet.
+      If the corresponding CoS is not permitted in the domain, the session-reflector <bcp14>MUST</bcp14> use the DSCP value of the received STAMP packet and set the value of the RP field to 1.
+      Upon receiving the reflected packet, if the value of the RP field is 0, the session-sender will save the DSCP and ECN values for analysis of the CoS in the reverse direction.
+      If the value of the RP field in the received reflected packet is 1, only CoS in the forward direction can be analyzed.
       </t>
     </section>
 
