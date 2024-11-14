@@ -57,11 +57,12 @@ Table of Contents
    1.  Introduction
      1.1.  Requirements Language
    2.  DSCP and ECN Traversal STAMP Extension
-   3.  IANA Considerations
-   4.  Security Considerations
-   5.  References
-     5.1.  Normative References
-     5.2.  Informative References
+   3.  Implementation Status
+   4.  IANA Considerations
+   5.  Security Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Acknowledgements
    Contributors
    Author's Address
@@ -149,7 +150,13 @@ Table of Contents
    the received reflected packet is 1, only CoS in the forward direction
    can be analyzed.
 
-3.  IANA Considerations
+3.  Implementation Status
+
+   The author is aware of two independent implementations of this STAMP
+   Extension TLV, one of which is publicly available here
+   (https://github.com/cerfcast/teaparty).
+
+4.  IANA Considerations
 
    Add this extension to the IANA STAMP TLV Types
    (https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-
@@ -161,13 +168,13 @@ Table of Contents
 
    *  Reference = this document
 
-4.  Security Considerations
+5.  Security Considerations
 
    This document should not affect the security of the Internet.
 
-5.  References
+6.  References
 
-5.1.  Normative References
+6.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -185,11 +192,6 @@ Table of Contents
               RFC 3168, DOI 10.17487/RFC3168, September 2001,
               <https://www.rfc-editor.org/info/rfc3168>.
 
-   [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
-              Notification (ECN) Experimentation", RFC 8311,
-              DOI 10.17487/RFC8311, January 2018,
-              <https://www.rfc-editor.org/info/rfc8311>.
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -205,13 +207,18 @@ Table of Contents
               DOI 10.17487/RFC8972, January 2021,
               <https://www.rfc-editor.org/info/rfc8972>.
 
+6.2.  Informative References
+
+   [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
+              Notification (ECN) Experimentation", RFC 8311,
+              DOI 10.17487/RFC8311, January 2018,
+              <https://www.rfc-editor.org/info/rfc8311>.
+
    [RFC9331]  De Schepper, K. and B. Briscoe, Ed., "The Explicit
               Congestion Notification (ECN) Protocol for Low Latency,
               Low Loss, and Scalable Throughput (L4S)", RFC 9331,
               DOI 10.17487/RFC9331, January 2023,
               <https://www.rfc-editor.org/info/rfc9331>.
-
-5.2.  Informative References
 
 Acknowledgements
 
@@ -219,7 +226,7 @@ Acknowledgements
 
 Contributors
 
-   TBD
+   Karthik Sundaresan, William Hawkins III
 
 Author's Address
 
