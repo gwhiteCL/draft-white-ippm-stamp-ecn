@@ -45,31 +45,30 @@
     <seriesInfo name="Internet-Draft" value="draft-white-ippm-stamp-ecn-latest"/> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#seriesinfo -->
     <!-- Set value to the name of the draft  -->
    
-    <author fullname="Author's Full Name" initials="Author's Initials" role="editor" surname="Author's Surname"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#author -->
+    <author fullname="Greg White" initials="G" surname="White"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#author -->
     <!-- initials should not include an initial for the surname -->
     <!-- role="editor" is optional -->
     <!-- Can have more than one author -->
       
     <!-- all of the following elements are optional -->
-      <organization>Organization</organization> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#organization -->
+      <organization>CableLabs</organization> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#organization -->
       <address> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#address -->
         <postal>
           <!-- Reorder these if your country does things differently -->
-          <street>Street</street>
-          <city>City</city>
-          <region>Region</region>
-          <code>Postal code</code>
-          <country>Country</country>
+          <street>858 Coal Creek Circle</street>
+          <city>Louisville</city>
+          <region>Colorado</region>
+          <code>80027</code>
+          <country>US</country>
           <!-- Can use two letter country code -->
         </postal>        
-        <phone>Phone</phone>
-        <email>Email</email>  
+        <email>g.white@cablelabs.com</email>  
         <!-- Can have more than one <email> element -->
-        <uri>URI</uri>
+        <uri>http://www.cablelabs.com</uri>
       </address>
     </author>
    
-    <date year="2023" month="3" day="1"/> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#date -->
+    <date/> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#date -->
     <!-- On draft subbmission:
          * If only the current year is specified, the current day and month will be used.
          * If the month and year are both specified and are the current ones, the current day will
@@ -78,12 +77,12 @@
     -->
 
     <area>General</area>
-    <workgroup>Internet Engineering Task Force</workgroup>
+    <workgroup>IPPM</workgroup>
     <!-- "Internet Engineering Task Force" is fine for individual submissions.  If this element is 
           not present, the default is "Network Working Group", which is used by the RFC Editor as 
           a nod to the history of the RFC Series. -->
     
-    <keyword>template</keyword>
+    <keyword>stamp</keyword>
     <!-- Multiple keywords are allowed.  Keywords are incorporated into HTML output files for 
          use by search engines. -->
 
