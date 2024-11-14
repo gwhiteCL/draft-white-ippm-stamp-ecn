@@ -70,13 +70,14 @@ Table of Contents
 
    Section 4.4 of [RFC8972] defines a "Class of Service TLV" extension
    for the STAMP protocol [RFC8762] which enables bi-directional
-   measurement of DSCP traversal, but only allows round-trip measurement
-   of ECN traversal.  Since the ECN field is separately meaningful in
-   each path direction, it is valuable to have the capability to perform
-   bi-directional measurements of ECN traversal and to have the abilty
-   to measure path characteristics that depend on the ECN codepoint.  In
-   addition, bi-directional traversal measurements are important to
-   isolate traversal issues for path remediation actions.
+   measurement of DSCP [RFC2474] traversal, but only allows round-trip
+   measurement of ECN [RFC3168][RFC8311][RFC9331] traversal.  Since the
+   ECN field is separately meaningful in each path direction, it is
+   valuable to have the capability to perform bi-directional
+   measurements of ECN traversal and to have the abilty to measure path
+   characteristics that depend on the ECN codepoint.  In addition, bi-
+   directional traversal measurements are important to isolate traversal
+   issues for path remediation actions.
 
 1.1.  Requirements Language
 
@@ -91,15 +92,15 @@ Table of Contents
    The STAMP session-sender MAY include a DSCP and ECN TLV in the STAMP
    test packet.  The format of the TLV is presented in Figure 1.
 
-        0                   1                   2                   3
-        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |STAMP TLV Flags|      Type     |           Length              |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |STAMP TLV Flags|      Type     |           Length              |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-                 Figure 1: DSCP and ECN Traversal TLV
+                    Figure 1: DSCP and ECN Traversal TLV
 
    The fields are defined as follows.
 
@@ -150,7 +151,15 @@ Table of Contents
 
 3.  IANA Considerations
 
-   Add this TLV 179 to the IANA STAMP Extensions Registry.
+   Add this extension to the IANA STAMP TLV Types
+   (https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-
+   types.xhtml#stamp-tlv-types-1) Registry.
+
+   *  Value = 179
+
+   *  Description = "DSCP and ECN Traversal"
+
+   *  Reference = this document
 
 4.  Security Considerations
 
@@ -160,25 +169,47 @@ Table of Contents
 
 5.1.  Normative References
 
-   [RFC8972]  Mirsky, G., Min, X., Nydell, H., Foote, R., Masputra, A.,
-              and E. Ruffini, "Simple Two-Way Active Measurement
-              Protocol Optional Extensions", RFC 8972,
-              DOI 10.17487/RFC8972, January 2021,
-              <https://www.rfc-editor.org/info/rfc8972>.
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC2474]  Nichols, K., Blake, S., Baker, F., and D. Black,
+              "Definition of the Differentiated Services Field (DS
+              Field) in the IPv4 and IPv6 Headers", RFC 2474,
+              DOI 10.17487/RFC2474, December 1998,
+              <https://www.rfc-editor.org/info/rfc2474>.
+
+   [RFC3168]  Ramakrishnan, K., Floyd, S., and D. Black, "The Addition
+              of Explicit Congestion Notification (ECN) to IP",
+              RFC 3168, DOI 10.17487/RFC3168, September 2001,
+              <https://www.rfc-editor.org/info/rfc3168>.
+
+   [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
+              Notification (ECN) Experimentation", RFC 8311,
+              DOI 10.17487/RFC8311, January 2018,
+              <https://www.rfc-editor.org/info/rfc8311>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
    [RFC8762]  Mirsky, G., Jun, G., Nydell, H., and R. Foote, "Simple
               Two-Way Active Measurement Protocol", RFC 8762,
               DOI 10.17487/RFC8762, March 2020,
               <https://www.rfc-editor.org/info/rfc8762>.
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+   [RFC8972]  Mirsky, G., Min, X., Nydell, H., Foote, R., Masputra, A.,
+              and E. Ruffini, "Simple Two-Way Active Measurement
+              Protocol Optional Extensions", RFC 8972,
+              DOI 10.17487/RFC8972, January 2021,
+              <https://www.rfc-editor.org/info/rfc8972>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+   [RFC9331]  De Schepper, K. and B. Briscoe, Ed., "The Explicit
+              Congestion Notification (ECN) Protocol for Low Latency,
+              Low Loss, and Scalable Throughput (L4S)", RFC 9331,
+              DOI 10.17487/RFC9331, January 2023,
+              <https://www.rfc-editor.org/info/rfc9331>.
 
 5.2.  Informative References
 
