@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
      draft-white-ippm-stamp-ecn-latest
-  
-     This template includes examples of most of the features of RFCXML with comments explaining 
+
+     This template includes examples of most of the features of RFCXML with comments explaining
      how to customise them, and examples of how to achieve specific formatting.
-     
+
      Documentation is at https://authors.ietf.org/en/templates-and-schemas
 -->
 <?xml-model href="rfc7991bis.rnc"?>  <!-- Required for schema validation and schema-aware editing -->
-<!-- <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?> --> 
+<!-- <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?> -->
 <!-- This third-party XSLT can be enabled for direct transformations in XML processors, including most browsers -->
 
 <!DOCTYPE rfc [
@@ -30,26 +30,26 @@
   submissionType="IETF"
   xml:lang="en"
   version="3">
-<!-- 
+<!--
     * docName should be the name of your draft
     * category should be one of std, bcp, info, exp, historic
     * ipr should be one of trust200902, noModificationTrust200902, noDerivativesTrust200902, pre5378Trust200902
     * updates can be an RFC number as NNNN
-    * obsoletes can be an RFC number as NNNN 
+    * obsoletes can be an RFC number as NNNN
 -->
 
   <front>
-    <title abbrev="Abbreviated Title">Title</title> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#title-4 -->
+    <title abbrev="STAMP ECN">Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP and ECN Traversal Measurement</title> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#title-4 -->
     <!--  The abbreviated title is required if the full title is longer than 39 characters -->
 
     <seriesInfo name="Internet-Draft" value="draft-white-ippm-stamp-ecn-latest"/> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#seriesinfo -->
     <!-- Set value to the name of the draft  -->
-   
+
     <author fullname="Greg White" initials="G" surname="White"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#author -->
     <!-- initials should not include an initial for the surname -->
     <!-- role="editor" is optional -->
     <!-- Can have more than one author -->
-      
+
     <!-- all of the following elements are optional -->
       <organization>CableLabs</organization> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#organization -->
       <address> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#address -->
@@ -61,13 +61,13 @@
           <code>80027</code>
           <country>US</country>
           <!-- Can use two letter country code -->
-        </postal>        
-        <email>g.white@cablelabs.com</email>  
+        </postal>
+        <email>g.white@cablelabs.com</email>
         <!-- Can have more than one <email> element -->
         <uri>http://www.cablelabs.com</uri>
       </address>
     </author>
-   
+
     <date/> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#date -->
     <!-- On draft subbmission:
          * If only the current year is specified, the current day and month will be used.
@@ -77,28 +77,29 @@
     -->
 
     <area>General</area>
-    <workgroup>IPPM</workgroup>
-    <!-- "Internet Engineering Task Force" is fine for individual submissions.  If this element is 
-          not present, the default is "Network Working Group", which is used by the RFC Editor as 
+    <workgroup>IP Performance Measurement</workgroup>
+    <!-- "Internet Engineering Task Force" is fine for individual submissions.  If this element is
+          not present, the default is "Network Working Group", which is used by the RFC Editor as
           a nod to the history of the RFC Series. -->
-    
+
     <keyword>stamp</keyword>
-    <!-- Multiple keywords are allowed.  Keywords are incorporated into HTML output files for 
+    <!-- Multiple keywords are allowed.  Keywords are incorporated into HTML output files for
          use by search engines. -->
 
     <abstract>
-      <t>Abstract</t>
+      <t>The Simple Two-Way Active Measurement Protocol (STAMP) enables path measurements between IP hosts, and has a facility for defining optional extensions.
+        This document defines a STAMP extension to enable the measurement of traversal of the ECN field between two STAMP hosts.</t>
     </abstract>
- 
+
   </front>
 
   <middle>
-    
+
     <section>
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
       <name>Introduction</name>
-      <t>Introductory text</t>
-      
+      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP traversal, but only allows round-trip measurement of ECN traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal. In addition, bi-directional traversal measurements are important to isolate traversal issues for path remediation actions.</t>
+
       <section anchor="requirements">
       <!-- anchor is an optional attribute -->
         <name>Requirements Language</name>
@@ -111,178 +112,67 @@
       </section>
       <!-- The 'Requirements Language' section is optional -->
     </section>
-    
+
     <section>
-      <name>Body</name>
-      <t>Body text</t>
-    </section>
-    
-    <section>
-      <name>List Examples</name>
-      
-      <section>
-        <name>Simple Unordered (Bullet) List</name>
-        <t>Text before the list</t>
-        <ul spacing="normal">
-          <li>First bullet</li>
-          <li>Second bullet</li>
-        </ul>
-        <t>Text after the list.</t>
-      </section>
-      
-      <section>
-        <name>Ordered List With Lowercase Letters in Brackets Instead of Numbers</name>
-        <ol type="(%c)"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#type-1 -->
-          <li>List item (a)</li>
-          <li>List item (b)</li>
-        </ol>
-      </section>
-      
-      <section>
-        <name>Continuous Numbering in a List That is Split by Text or Sections</name>
-        <!-- The following two lists render as 
-        Text to introduce the list
-        REQ1: This will be "REQ1:"
-        REQ2: This will be "REQ2:"
-        Some text in between
-        REQ3: This will be "REQ3:"
-        REQ4: This will be "REQ4:"
-        -->
-        <t>Text to introduce the list</t>
-        <ol type="REQ%d:" group="reqs">  <!-- value of group is user-defined https://authors.ietf.org/en/rfcxml-vocabulary#group -->
-          <li>This will be "REQ1:"</li>
-          <li>This will be "REQ2:"</li>
-        </ol>
-        <t>Some text in between</t>
-        <ol type="REQ%d:" group="reqs">  <!-- same value of group as before -->
-          <li>This will be "REQ3:"</li>
-          <li>This will be "REQ4:"</li>
-        </ol>
-        <section>
-          <name>Section in-between</name>
-          <t>More text in-between</t>
-          <ol type="REQ%d:" group="reqs">  <!-- same value of group as before -->
-            <li>This will be REQ5:</li>
-            <li>This will be REQ6:</li>
-          </ol>
-        </section>
-      </section>
-      
-      <section>
-        <name>Definition Lists</name> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#dl -->
-        <dl newline="true"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#newline -->
-        <!-- Omit newline="true" if you want each definition to start on the same line as the corresponding term -->
-          <dt>First term:</dt>
-          <dd>Definition of the first term</dd>
-          <dt>Second term:</dt>
-          <dd>Definition of the second term</dd>
-        </dl>
-      </section>
-      
-      <section>
-        <name>Lists With Hanging Labels</name>
-        <t>the list item is indented the value of indent</t>  <!--  https://authors.ietf.org/en/rfcxml-vocabulary#indent -->
-        <dl newline="true" spacing="normal" indent="8">
-        <!-- Custom indent of 8 with the defintion starting on a new line after the term -->
-          <dt>short</dt>
-          <dd>With a label shorter than the indent.</dd>
-          <dt>fantastically long label</dt>
-          <dd>With a label longer than the indent.</dd>
-        </dl>
-      </section>
-    </section>
-    
-    <section>
-      <name>Tables</name>
-      <table> <!-- https://authors.ietf.org/rfcxml-vocabulary#table -->
-        <thead> <!-- https://authors.ietf.org/rfcxml-vocabulary#thead -->
-        <!-- A table header is optional -->
-          <tr><th>Column 1</th><th>Column 2</th><th>Column 3</th></tr>
-        </thead>
-        <tbody> <!-- https://authors.ietf.org/rfcxml-vocabulary#tbody -->
-        <!-- A table body is required -->
-          <tr><td align="left">Left cell</td><td colspan="2">Colspan cell</td></tr>
-          <!-- align can be right, left or center.  colspan and rowspan work as they do in HTML -->
-          <tr><td rowspan="2">Rowspan cell</td><td align="center">Center cell</td><td align="right">Right cell</td></tr>
-          <tr><td>Cell</td><td>Cell</td></tr>
-        </tbody>
-        <tfoot> <!-- https://authors.ietf.org/rfcxml-vocabulary#tfoot -->
-        <!-- A table footer is optional -->
-          <tr><td colspan="3">Colspan footer</td></tr>
-        </tfoot>
-      </table>
-    </section>
-    
-    <section>
-      <name>Source Code Examples</name>
-      <t>This is an example C program</t>
-        <sourcecode name="helloworld.c" type="c" markers="true"> <!-- https://authors.ietf.org/en/rfcxml-vocabulary#sourcecode -->
-          <![CDATA[
-#include <stdio.h>
-        
-int main() {
-  printf("Hello World");
-  return 0;
-}
-          ]]>
-        </sourcecode>
-        <!-- markers="true" means that the rendered file will have <CODE BEGINS> and <CODE ENDS> added. -->
-        <!-- The CDATA wrapper is optional but is strongly recommended to avoid any unexpected processing
-             or issues with angle brackets. 
-             <sourcecode></sourcecode> can optionally be wrapped in <figure></figure> -->
-    </section>
-    
-    <section anchor="adding-diagrams">
-    <!-- anchor is optional and used for reference below -->
-      <name>Adding Diagrams</name>
-      <figure>
-        <name>A Box</name>
-        <artset>  <!-- https://authors.ietf.org/en/rfcxml-vocabulary#artset -->
-        <!-- This <artset> includes two <artwork> elements, each of a different type.  Both are not 
-             always needed.  See https://authors.ietf.org/e/en/adding-diagrams -->
-          <artwork type="svg" name="https://www.rfc-editor.org/materials/format/svg/stream.svg">  <!-- https://authors.ietf.org/en/rfcxml-vocabulary#artwork -->
-            <!-- Inserting the SVG like this is only one way of adding an SVG diagram.  Another way is 
-                 to use the src attribute to point to an external file or URI.  The name attribute 
-                 recommends a filename to use if the artwork is extracted to a file. -->
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 71 40">
-              <g>
-                <title>Layer 1</title>
-                <rect x="4.5" y="6.5" width="61.0" height="27.0" stroke="black" stroke-width="1.0" stroke-linecap="square" stroke-linejoin="miter" fill="none" />
-                <text x="33.883" text-anchor="middle" y="26.559">
-                  <tspan fill="black" font-size="13.0">A box</tspan>
-                </text>
-              </g>
-            </svg>
-          </artwork>
-          <artwork type="ascii-art" name="box.txt">
+      <name>DSCP and ECN Traversal STAMP Extension</name>
+      <t>The STAMP session-sender MAY include a DSCP and ECN TLV in the STAMP test packet. The format of the TLV is presented in <xref target="TLV"/>.</t>
+      <figure anchor="TLV">
+                <name>DSCP and ECN Traversal TLV</name>
+
+        <artset>
+                  <artwork type="ascii-art" name="TLV.txt">
             <![CDATA[
- +--------+
- | A box  |
- +--------+          
+        0                   1                   2                   3
+        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |STAMP TLV Flags|      Type     |           Length              |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
             ]]>
           </artwork>
-        </artset>      
+      </artset>
       </figure>
+
+      <t>The fields are defined as follows.</t>
+      <ul spacing="normal">
+        <li>STAMP TLV Flags: eight-bit field; format presented in <xref target="RFC8972"/>.</li>
+        <li>Type: one-octet field; value 179 allocated by this specification</li>
+        <li>Length: two-octet field; set equal to the value 4 octets</li>
+        <li>DSCP1: differentiated services code point intended by the session-sender to be used as the DSCP value of the reflected test packet</li>
+        <li>EC1: ECN value intended by the session-sender to be used as the ECN value of the reflected test packet </li>
+        <li>DSCP2: received value in the DSCP field at the ingress of the session-reflector</li>
+        <li>EC2: received value in the ECN field at the ingress of the session-reflector</li>
+        <li>RP (reverse path): two-bit field
+        A session-sender MUST set the value of the RP field to 0 on transmission.</li>
+        <li>Reserved: fourteen-bit field to be zeroed on transmission and ignored on receipt</li>
+      </ul>
+
+      <t>
+      A session-reflector that receives a test packet with the DSCP and ECN Traversal TLV MUST include the DSCP and ECN Traversal TLV in the reflected test packet.</t>
+
+      <t>The session-reflector MUST copy the value of the DSCP and ECN fields of the IP header of the received STAMP test packet into the DSCP2 field and EC2 field in the reflected test packet.
+        Finally, the session-reflector MUST use the local policy to verify whether the CoS corresponding to the value of the DSCP1 field is permitted in the domain.
+        If the corresponding CoS is permitted in the domain, the session-reflector MUST set the DSCP field's value in the IP header of the reflected test packet equal to the value of the DSCP1 field of the received test packet.
+        If the corresponding CoS is not permitted in the domain, the session-reflector MUST use the DSCP value of the received STAMP packet and set the value of the RP field to 1.
+        Upon receiving the reflected packet, if the value of the RP field is 0, the session-sender will save the DSCP and ECN values for analysis of the CoS in the reverse direction.
+        If the value of the RP field in the received reflected packet is 1, only CoS in the forward direction can be analyzed.
+      </t>
     </section>
-    
-    <section>
-      <name>Using xref</name>
-      <t>A reference to <xref target="adding-diagrams"/></t>
-      <t>A reference to <xref target="RFC8174" sectionFormat="of" section="2"/></t>
-    </section>
-    
+
+
     <section anchor="IANA">
     <!-- All drafts are required to have an IANA considerations section. See RFC 8126 for a guide.-->
       <name>IANA Considerations</name>
-      <t>This memo includes no request to IANA.</t>
+      <t>Add this TLV 179 to the IANA STAMP Extensions Registry.</t>
     </section>
-    
+
     <section anchor="Security">
       <!-- All drafts are required to have a security considerations section. See RFC 3552 for a guide. -->
       <name>Security Considerations</name>
       <t>This document should not affect the security of the Internet.</t>
     </section>
-    
+
     <!-- NOTE: The Acknowledgements and Contributors sections are at the end of this template -->
   </middle>
 
@@ -291,82 +181,30 @@ int main() {
       <name>References</name>
       <references>
         <name>Normative References</name>
-        
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8972.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8762.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
-        <!-- The recommended and simplest way to include a well known reference -->
-        
+
       </references>
- 
+
       <references>
         <name>Informative References</name>
-       
-        <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
-        <!-- Manually added reference -->
-          <front>
-            <title>Key words for use in RFCs to Indicate Requirement Levels</title>
-            <author initials="S." surname="Bradner" fullname="S. Bradner">
-              <organization/>
-            </author>
-            <date year="1997" month="March"/>
-            <abstract>
-              <t>In many standards track documents several words are used to signify the requirements in the specification. These words are often capitalized. This document defines these words as they should be interpreted in IETF documents. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.
-              </t>
-            </abstract>
-          </front>
-          <seriesInfo name="BCP" value="14"/>
-          <seriesInfo name="RFC" value="2119"/>
-          <seriesInfo name="DOI" value="10.17487/RFC2119"/>
-        </reference>
-       
-        <reference anchor="exampleRefMin">
-        <!-- Example minimum reference -->
-          <front>
-            <title>Title</title>
-            <author initials="Initials" surname="Surname">
-              <organization/>
-            </author>
-            <date year="2006"/>
-          </front>
-        </reference>
-
-        <reference anchor="exampleRefOrg" target="http://www.example.com/">
-        <!-- Example reference written by an organization not a person -->
-          <front>
-            <title>Title</title>
-            <author>
-              <organization>Organization</organization>
-            </author>
-            <date year="1984"/>
-          </front>
-        </reference>       
-       
       </references>
     </references>
-    
-    <section>
-      <name>Appendix 1</name>
-      <t>This becomes an Appendix</t>
-    </section>
+
 
     <section anchor="Acknowledgements" numbered="false">
       <!-- an Acknowledgements section is optional -->
       <name>Acknowledgements</name>
-      <t>This template uses extracts from templates written by Pekka Savola, Elwyn Davies and 
-        Henrik Levkowetz.</t>
+      <t>TBD</t>
     </section>
-    
+
     <section anchor="Contributors" numbered="false">
       <!-- a Contributors section is optional -->
       <name>Contributors</name>
-      <t>Thanks to all of the contributors.</t>
-      <contact fullname="Jane Doe" initials="J" surname="Doe"><!-- https://authors.ietf.org/en/rfcxml-vocabulary#contact-->
-        <!-- including contact information for contributors is optional -->
-        <organization>Acme</organization>
-        <address>
-          <email>jdoe@example.com</email>
-        </address>
-      </contact>
+      <t>TBD</t>
     </section>
-    
+
  </back>
 </rfc>
