@@ -137,6 +137,10 @@ Table of Contents
    of the IP header of the received STAMP test packet into the DSCP2
    field and EC2 field in the reflected test packet.
 
+   The session-reflector MUST set the ECN field's value in the IP header
+   of the reflected test packet equal to the value in the EC1 field of
+   the received test packet.
+
    Finally, the session-reflector MUST use the local policy to verify
    whether the CoS corresponding to the value of the DSCP1 field is
    permitted in the domain.  If the corresponding CoS is permitted in
