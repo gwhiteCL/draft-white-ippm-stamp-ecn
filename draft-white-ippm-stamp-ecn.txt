@@ -78,7 +78,7 @@ Table of Contents
    measurements of ECN traversal and to have the abilty to measure path
    characteristics that depend on the ECN codepoint.  In addition, bi-
    directional traversal measurements are important to isolate traversal
-   issues for path remediation actions.
+   issues so that remediation actions can be taken appropriately.
 
 1.1.  Requirements Language
 
