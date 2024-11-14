@@ -125,13 +125,18 @@
       <!-- The 'Requirements Language' section is optional -->
     </section>
 
-    <section> <name>DSCP and ECN Traversal STAMP Extension</name> <t>The STAMP
-    session-sender <bcp14>MAY</bcp14> include a DSCP and ECN TLV in the STAMP
-    test packet. The format of the TLV is presented in <xref
-    target="TLV"/>.</t> <figure anchor="TLV"> <name>DSCP and ECN Traversal
-    TLV</name> <artset> <artwork type="ascii-art" name="TLV.txt"> <![CDATA[ 0 1
-    2                   3 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
-    7 8 9 0 1
+    <section> 
+      <name>DSCP and ECN Traversal STAMP Extension</name> 
+      <t>The STAMP session-sender <bcp14>MAY</bcp14> include a DSCP and 
+      ECN TLV in the STAMP test packet. The format of the TLV is presented in <xref
+    target="TLV"/>.</t> 
+    <figure anchor="TLV"> 
+      <name>DSCP and ECN Traversal TLV</name> 
+      <artset> 
+        <artwork type="ascii-art" name="TLV.txt"> 
+        <![CDATA[ 
+    0                   1                   2                   3 
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |STAMP TLV Flags|      Type     |           Length              |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
