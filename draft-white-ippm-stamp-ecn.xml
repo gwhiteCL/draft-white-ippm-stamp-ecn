@@ -125,17 +125,17 @@
       <!-- The 'Requirements Language' section is optional -->
     </section>
 
-    <section> 
-      <name>DSCP and ECN Traversal STAMP Extension</name> 
-      <t>The STAMP session-sender <bcp14>MAY</bcp14> include a DSCP and 
+    <section>
+      <name>DSCP and ECN Traversal STAMP Extension</name>
+      <t>The STAMP session-sender <bcp14>MAY</bcp14> include a DSCP and
       ECN TLV in the STAMP test packet. The format of the TLV is presented in <xref
-    target="TLV"/>.</t> 
-    <figure anchor="TLV"> 
-      <name>DSCP and ECN Traversal TLV</name> 
-      <artset> 
-        <artwork type="ascii-art" name="TLV.txt"> 
-        <![CDATA[ 
-    0                   1                   2                   3 
+    target="TLV"/>.</t>
+    <figure anchor="TLV">
+      <name>DSCP and ECN Traversal TLV</name>
+      <artset>
+        <artwork type="ascii-art" name="TLV.txt">
+        <![CDATA[
+    0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |STAMP TLV Flags|      Type     |           Length              |
@@ -149,20 +149,20 @@
 
       <t>The fields are defined as follows.</t>
       <ul spacing="normal">
-        <li>STAMP TLV Flags: eight-bit field; format presented 
+        <li>STAMP TLV Flags: eight-bit field; format presented
           in <xref target="RFC8972"/>.</li>
         <li>Type: one-octet field; value 179 allocated by this specification</li>
         <li>Length: two-octet field; set equal to the value 4 octets</li>
-        <li>DSCP1: differentiated services code point intended by the 
+        <li>DSCP1: differentiated services code point intended by the
           session-sender to be used as the DSCP value of the reflected test packet</li>
-        <li>EC1: ECN value intended by the session-sender to be used as 
+        <li>EC1: ECN value intended by the session-sender to be used as
           the ECN value of the reflected test packet </li>
-        <li>DSCP2: received value in the DSCP field at the ingress of the 
+        <li>DSCP2: received value in the DSCP field at the ingress of the
           session-reflector</li>
-        <li>EC2: received value in the ECN field at the ingress of the 
+        <li>EC2: received value in the ECN field at the ingress of the
           session-reflector</li>
         <li>RP (reverse path): two-bit field; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission.</li>
-        <li>Reserved: fourteen-bit field to be zeroed on transmission 
+        <li>Reserved: fourteen-bit field to be zeroed on transmission
           and ignored on receipt</li>
       </ul>
 
@@ -190,7 +190,7 @@
       RP field is 0, the session-sender will save the DSCP and ECN values for
       analysis of the CoS in the reverse direction. If the value of the RP
       field in the received reflected packet is 1, only CoS in the forward
-      direction can be analyzed. </t> 
+      direction can be analyzed. </t>
     </section>
 
     <section anchor="Implementation">
