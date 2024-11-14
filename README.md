@@ -1,6 +1,6 @@
-# TODO - Your title
+# Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP and ECN Traversal Measurement
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "draft-white-ippm-stamp-ecn".
 
 * [Editor's Copy](https://gwhiteCL.github.io/draft-white-ippm-stamp-ecn/#go.draft-white-ippm-stamp-ecn.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-white-ippm-stamp-ecn)
