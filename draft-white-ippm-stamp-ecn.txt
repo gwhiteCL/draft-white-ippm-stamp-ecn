@@ -70,7 +70,7 @@ Table of Contents
 
    Section 4.4 of [RFC8972] defines a "Class of Service TLV" extension
    for the STAMP protocol [RFC8762] which enables bi-directional
-   measurement of DSCP [RFC2474] traversal, but only allows round-trip
+   measurement of DSCP [RFC2474] traversal, but only allows one-way
    measurement of ECN [RFC3168][RFC8311][RFC9331] traversal.  Since the
    ECN field is separately meaningful in each path direction, it is
    valuable to have the capability to perform bi-directional
