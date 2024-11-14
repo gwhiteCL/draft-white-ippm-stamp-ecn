@@ -98,7 +98,7 @@
     <section>
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
       <name>Introduction</name>
-      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP traversal, but only allows round-trip measurement of ECN traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal and to have the abilty to measure path characteristics that depend on the ECN codepoint. In addition, bi-directional traversal measurements are important to isolate traversal issues for path remediation actions.</t>
+      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP <xref target="RFC2474"/> traversal, but only allows round-trip measurement of ECN <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/> traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal and to have the abilty to measure path characteristics that depend on the ECN codepoint. In addition, bi-directional traversal measurements are important to isolate traversal issues for path remediation actions.</t>
 
       <section anchor="requirements">
       <!-- anchor is an optional attribute -->
@@ -122,13 +122,13 @@
         <artset>
                   <artwork type="ascii-art" name="TLV.txt">
             <![CDATA[
-        0                   1                   2                   3
-        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |STAMP TLV Flags|      Type     |           Length              |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |STAMP TLV Flags|      Type     |           Length              |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
             ]]>
           </artwork>
       </artset>
@@ -164,7 +164,14 @@
     <section anchor="IANA">
     <!-- All drafts are required to have an IANA considerations section. See RFC 8126 for a guide.-->
       <name>IANA Considerations</name>
-      <t>Add this TLV 179 to the IANA STAMP Extensions Registry.</t>
+      <t>Add this extension to the IANA <eref target="https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-types.xhtml#stamp-tlv-types-1">STAMP TLV Types</eref> Registry.</t>
+
+      <ul>
+        <li>Value = 179</li>
+        <li>Description = "DSCP and ECN Traversal"</li>
+        <li>Reference = this document</li>
+      </ul>
+
     </section>
 
     <section anchor="Security">
@@ -181,11 +188,14 @@
       <name>References</name>
       <references>
         <name>Normative References</name>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8972.xml"/>
-        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8762.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2474.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3168.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8311.xml"/>
         <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
-
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8762.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8972.xml"/>
+        <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9331.xml"/>
       </references>
 
       <references>
