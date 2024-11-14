@@ -160,6 +160,11 @@
       </t>
     </section>
 
+    <section anchor="Implementation">
+      <name>Implementation Status</name>
+      <t>The author is aware of two independent implementations of this STAMP Extension TLV, one of which is publicly available <eref target="https://github.com/cerfcast/teaparty">here</eref>.</t>
+
+    </section>
 
     <section anchor="IANA">
     <!-- All drafts are required to have an IANA considerations section. See RFC 8126 for a guide.-->
