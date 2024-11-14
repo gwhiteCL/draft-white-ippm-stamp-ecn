@@ -86,10 +86,12 @@
     <!-- Multiple keywords are allowed.  Keywords are incorporated into HTML output files for
          use by search engines. -->
 
-    <abstract>
-      <t>The Simple Two-Way Active Measurement Protocol (STAMP) enables path measurements between IP hosts, and has a facility for defining optional extensions.
-        This document defines a STAMP extension to enable the measurement of traversal of the ECN field between two STAMP hosts, and to enable measurement of paths that provide differential treatment depending on the value of the ECN field.</t>
-    </abstract>
+    <abstract> <t>The Simple Two-Way Active Measurement Protocol (STAMP) enables
+    path measurements between IP hosts, and has a facility for defining
+    optional extensions. This document defines a STAMP extension to enable the
+    measurement of traversal of the ECN field between two STAMP hosts, and to
+    enable measurement of paths that provide differential treatment depending
+    on the value of the ECN field.</t> </abstract>
 
   </front>
 
@@ -97,8 +99,18 @@
 
     <section>
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
-      <name>Introduction</name>
-      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP <xref target="RFC2474"/> traversal, but only allows one-way measurement of ECN <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/> traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal and to have the abilty to measure path characteristics that depend on the ECN codepoint. In addition, bi-directional traversal measurements are important to isolate traversal issues so that remediation actions can be taken appropriately.</t>
+      <name>Introduction</name> <t><xref target="RFC8972" section="4.4"/>
+      defines a "Class of Service TLV" extension for the STAMP protocol <xref
+      target="RFC8762"/> which enables bi-directional measurement of DSCP <xref
+      target="RFC2474"/> traversal, but only allows one-way measurement of ECN
+      <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/>
+      traversal. Since the ECN field is separately meaningful in each path
+      direction, it is valuable to have the capability to perform
+      bi-directional measurements of ECN traversal and to have the abilty to
+      measure path characteristics that depend on the ECN codepoint. In
+      addition, bi-directional traversal measurements are important to isolate
+      traversal issues so that remediation actions can be taken
+      appropriately.</t>
 
       <section anchor="requirements">
       <!-- anchor is an optional attribute -->
@@ -113,16 +125,13 @@
       <!-- The 'Requirements Language' section is optional -->
     </section>
 
-    <section>
-      <name>DSCP and ECN Traversal STAMP Extension</name>
-      <t>The STAMP session-sender <bcp14>MAY</bcp14> include a DSCP and ECN TLV in the STAMP test packet. The format of the TLV is presented in <xref target="TLV"/>.</t>
-      <figure anchor="TLV">
-        <name>DSCP and ECN Traversal TLV</name>
-        <artset>
-        <artwork type="ascii-art" name="TLV.txt">
-            <![CDATA[
-    0                   1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+    <section> <name>DSCP and ECN Traversal STAMP Extension</name> <t>The STAMP
+    session-sender <bcp14>MAY</bcp14> include a DSCP and ECN TLV in the STAMP
+    test packet. The format of the TLV is presented in <xref
+    target="TLV"/>.</t> <figure anchor="TLV"> <name>DSCP and ECN Traversal
+    TLV</name> <artset> <artwork type="ascii-art" name="TLV.txt"> <![CDATA[ 0 1
+    2                   3 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
+    7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |STAMP TLV Flags|      Type     |           Length              |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -135,31 +144,48 @@
 
       <t>The fields are defined as follows.</t>
       <ul spacing="normal">
-        <li>STAMP TLV Flags: eight-bit field; format presented in <xref target="RFC8972"/>.</li>
+        <li>STAMP TLV Flags: eight-bit field; format presented 
+          in <xref target="RFC8972"/>.</li>
         <li>Type: one-octet field; value 179 allocated by this specification</li>
         <li>Length: two-octet field; set equal to the value 4 octets</li>
-        <li>DSCP1: differentiated services code point intended by the session-sender to be used as the DSCP value of the reflected test packet</li>
-        <li>EC1: ECN value intended by the session-sender to be used as the ECN value of the reflected test packet </li>
-        <li>DSCP2: received value in the DSCP field at the ingress of the session-reflector</li>
-        <li>EC2: received value in the ECN field at the ingress of the session-reflector</li>
-        <li>RP (reverse path): two-bit field
-        A session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission.</li>
-        <li>Reserved: fourteen-bit field to be zeroed on transmission and ignored on receipt</li>
+        <li>DSCP1: differentiated services code point intended by the 
+          session-sender to be used as the DSCP value of the reflected test packet</li>
+        <li>EC1: ECN value intended by the session-sender to be used as 
+          the ECN value of the reflected test packet </li>
+        <li>DSCP2: received value in the DSCP field at the ingress of the 
+          session-reflector</li>
+        <li>EC2: received value in the ECN field at the ingress of the 
+          session-reflector</li>
+        <li>RP (reverse path): two-bit field; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission.</li>
+        <li>Reserved: fourteen-bit field to be zeroed on transmission 
+          and ignored on receipt</li>
       </ul>
 
-      <t>
-      A session-reflector that receives a test packet with the DSCP and ECN Traversal TLV <bcp14>MUST</bcp14> include the DSCP and ECN Traversal TLV in the reflected test packet.</t>
+      <t> A session-reflector that receives a test packet with the DSCP and ECN
+      Traversal TLV <bcp14>MUST</bcp14> include the DSCP and ECN Traversal TLV
+      in the reflected test packet.</t>
 
-      <t>The session-reflector <bcp14>MUST</bcp14> copy the value of the DSCP and ECN fields of the IP header of the received STAMP test packet into the DSCP2 field and EC2 field in the reflected test packet.</t>
+      <t>The session-reflector <bcp14>MUST</bcp14> copy the value of the DSCP
+      and ECN fields of the IP header of the received STAMP test packet into
+      the DSCP2 field and EC2 field in the reflected test packet.</t>
 
-      <t>The session-reflector <bcp14>MUST</bcp14> set the ECN field's value in the IP header of the reflected test packet equal to the value in the EC1 field of the received test packet.</t>
+      <t>The session-reflector <bcp14>MUST</bcp14> set the ECN field's value in
+      the IP header of the reflected test packet equal to the value in the EC1
+      field of the received test packet.</t>
 
-      <t>Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy to verify whether the CoS corresponding to the value of the DSCP1 field is permitted in the domain.
-      If the corresponding CoS is permitted in the domain, the session-reflector <bcp14>MUST</bcp14> set the DSCP field's value in the IP header of the reflected test packet equal to the value of the DSCP1 field of the received test packet.
-      If the corresponding CoS is not permitted in the domain, the session-reflector <bcp14>MUST</bcp14> use the DSCP value of the received STAMP packet and set the value of the RP field to 1.
-      Upon receiving the reflected packet, if the value of the RP field is 0, the session-sender will save the DSCP and ECN values for analysis of the CoS in the reverse direction.
-      If the value of the RP field in the received reflected packet is 1, only CoS in the forward direction can be analyzed.
-      </t>
+      <t>Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy
+      to verify whether the CoS corresponding to the value of the DSCP1 field
+      is permitted in the domain. If the corresponding CoS is permitted in the
+      domain, the session-reflector <bcp14>MUST</bcp14> set the DSCP field's
+      value in the IP header of the reflected test packet equal to the value of
+      the DSCP1 field of the received test packet. If the corresponding CoS is
+      not permitted in the domain, the session-reflector <bcp14>MUST</bcp14>
+      use the DSCP value of the received STAMP packet and set the value of the
+      RP field to 1. Upon receiving the reflected packet, if the value of the
+      RP field is 0, the session-sender will save the DSCP and ECN values for
+      analysis of the CoS in the reverse direction. If the value of the RP
+      field in the received reflected packet is 1, only CoS in the forward
+      direction can be analyzed. </t> 
     </section>
 
     <section anchor="Implementation">
