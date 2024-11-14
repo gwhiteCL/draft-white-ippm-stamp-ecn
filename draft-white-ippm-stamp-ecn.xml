@@ -98,7 +98,7 @@
     <section>
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
       <name>Introduction</name>
-      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP <xref target="RFC2474"/> traversal, but only allows round-trip measurement of ECN <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/> traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal and to have the abilty to measure path characteristics that depend on the ECN codepoint. In addition, bi-directional traversal measurements are important to isolate traversal issues for path remediation actions.</t>
+      <t><xref target="RFC8972" section="4.4"/> defines a "Class of Service TLV" extension for the STAMP protocol <xref target="RFC8762"/> which enables bi-directional measurement of DSCP <xref target="RFC2474"/> traversal, but only allows one-way measurement of ECN <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/> traversal. Since the ECN field is separately meaningful in each path direction, it is valuable to have the capability to perform bi-directional measurements of ECN traversal and to have the abilty to measure path characteristics that depend on the ECN codepoint. In addition, bi-directional traversal measurements are important to isolate traversal issues for path remediation actions.</t>
 
       <section anchor="requirements">
       <!-- anchor is an optional attribute -->
