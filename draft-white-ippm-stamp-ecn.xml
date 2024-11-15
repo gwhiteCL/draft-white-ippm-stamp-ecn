@@ -87,11 +87,14 @@
          use by search engines. -->
 
     <abstract> <t>The Simple Two-Way Active Measurement Protocol (STAMP) enables
-    path measurements between IP hosts, and has a facility for defining
-    optional extensions. This document defines a STAMP extension to enable the
-    measurement of traversal of the ECN field between two STAMP hosts, and to
-    enable measurement of paths that provide differential treatment depending
-    on the value of the ECN field.</t> </abstract>
+    one-way and round-trip measurement of network metrics between IP hosts, and
+    has a facility for defining optional extensions. This document defines a
+    STAMP extension to enable the measurement of manipulation of the value of the
+    exlicit congestion notification (ECN) field of the IP header by middleboxes
+    between two STAMP hosts, and to enable discovery and measurement of
+    paths that provide differential treatment of packets depending on the value of
+    their ECN field.
+    </t> </abstract>
 
   </front>
 
@@ -101,14 +104,16 @@
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
       <name>Introduction</name> <t><xref target="RFC8972" section="4.4"/>
       defines a "Class of Service TLV" extension for the STAMP protocol <xref
-      target="RFC8762"/> which enables bi-directional measurement of DSCP <xref
-      target="RFC2474"/> traversal, but only allows one-way measurement of ECN
-      <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/>
-      traversal. Since the ECN field is separately meaningful in each path
+      target="RFC8762"/> which enables round-trip measurement of manipulation
+      of the differentiated services code point (DSCP) field of the IP header by
+      middleboxes <xref target="RFC2474"/> but only allows one-way measurement of
+      manipulation of the ECN field of the IP header by <xref target="RFC3168"/>
+      <xref target="RFC8311"/><xref target="RFC9331"/> middleboxes. Since the ECN
+      field of the IP header is separately meaningful in each
       direction, it is valuable to have the capability to perform
-      bi-directional measurements of ECN traversal and to have the abilty to
-      measure path characteristics that depend on the ECN codepoint. In
-      addition, bi-directional traversal measurements are important to isolate
+      round-trip measurements of ECN traversal and to have the abilty to
+      measure path characteristics that depend on the value of the ECN codepoint. In
+      addition, round-trip measurements are important to isolate
       traversal issues so that remediation actions can be taken
       appropriately.</t>
 
@@ -153,7 +158,7 @@
           in <xref target="RFC8972"/>.</li>
         <li>Type: one-octet field; value 179 allocated by this specification</li>
         <li>Length: two-octet field; set equal to the value 4 octets</li>
-        <li>DSCP1: differentiated services code point intended by the
+        <li>DSCP1: DSCP value intended by the
           session-sender to be used as the DSCP value of the reflected test packet</li>
         <li>EC1: ECN value intended by the session-sender to be used as
           the ECN value of the reflected test packet </li>
@@ -161,7 +166,7 @@
           session-reflector</li>
         <li>EC2: received value in the ECN field at the ingress of the
           session-reflector</li>
-        <li>RP (reverse path): two-bit field; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission.</li>
+        <li>RP (reverse path): two-bit field; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission</li>
         <li>Reserved: fourteen-bit field to be zeroed on transmission
           and ignored on receipt</li>
       </ul>
@@ -174,8 +179,8 @@
       and ECN fields of the IP header of the received STAMP test packet into
       the DSCP2 field and EC2 field in the reflected test packet.</t>
 
-      <t>The session-reflector <bcp14>MUST</bcp14> set the ECN field's value in
-      the IP header of the reflected test packet equal to the value in the EC1
+      <t>The session-reflector <bcp14>MUST</bcp14> set the value of the ECN field
+      in the IP header of the reflected test packet equal to the value in the EC1
       field of the received test packet.</t>
 
       <t>Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy
