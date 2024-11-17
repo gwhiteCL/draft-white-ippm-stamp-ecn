@@ -1,0 +1,81 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-11-17T01:53:47.129802+00:00",
+  "repo": "gwhiteCL/draft-white-ippm-stamp-ecn",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDONPCpts6CF0ZI",
+      "title": "Minor cleanups",
+      "url": "https://github.com/gwhiteCL/draft-white-ippm-stamp-ecn/pull/1",
+      "state": "OPEN",
+      "author": "hawkinsw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "1. Use 'round-trip' instead of bi-directional -- that appears to be the language from the STAMP RFCs.\r\n2. Make acronyms explicit.\r\n3. Fix a few typos.",
+      "createdAt": "2024-11-15T20:57:52Z",
+      "updatedAt": "2024-11-15T20:57:52Z",
+      "baseRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
+      "baseRefName": "main",
+      "baseRefOid": "a1103f5e1f194a9b5e5a94dc4c8b834c8585eb1f",
+      "headRepository": "hawkinsw/draft-white-ippm-stamp-ecn",
+      "headRefName": "main",
+      "headRefOid": "93e354b90569dd56f6caa271b4be1449a06efe9b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
