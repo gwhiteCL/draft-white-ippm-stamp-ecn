@@ -90,10 +90,9 @@
     one-way and round-trip measurement of network metrics between IP hosts, and has a facility for defining 
     optional extensions. This document defines a STAMP extension to enable the 
     measurement of manipulation of the value of the
-    exlicit congestion notification (ECN) field of the IP header by middleboxes between two STAMP hosts, and to 
+    explicit congestion notification (ECN) field of the IP header by middleboxes between two STAMP hosts, and to 
     enable discovery and measurement of paths that provide differential treatment of packets depending 
-    on the value of their ECN field.
-    </t> </abstract>
+    on the value of their ECN field.</t> </abstract>
 
   </front>
 
@@ -103,15 +102,15 @@
     <!-- The default attributes for <section> are numbered="true" and toc="default" -->
       <name>Introduction</name> <t><xref target="RFC8972" section="4.4"/>
       defines a "Class of Service TLV" extension for the STAMP protocol <xref
-      target="RFC8762"/> which enables round-trip measurement of manipulation of the differentiated services code point (DSCP) field of the IP header by
+      target="RFC8762"/> which enables bi-directional measurement of manipulation of the differentiated services code point (DSCP) field of the IP header by
       middleboxes <xref 
       target="RFC2474"/> but only allows one-way measurement of manipulation of the ECN field of the IP header by 
       <xref target="RFC3168"/><xref target="RFC8311"/><xref target="RFC9331"/>
       middleboxes. Since the ECN field of the IP header is separately meaningful in each
       direction, it is valuable to have the capability to perform
-      round-trip measurements of ECN traversal and to have the abilty to
+      bi-directional measurements of ECN traversal and to have the abilty to
       measure path characteristics that depend on the value of the ECN codepoint. In
-      addition, round-trip measurements are important to isolate
+      addition, bi-directional measurements are important to isolate
       traversal issues so that remediation actions can be taken
       appropriately.</t>
 
@@ -177,8 +176,8 @@
       and ECN fields of the IP header of the received STAMP test packet into
       the DSCP2 field and EC2 field in the reflected test packet.</t>
 
-      <t>The session-reflector <bcp14>MUST</bcp14> set the value of the ECN field
-      in the IP header of the reflected test packet equal to the value in the EC1
+      <t>The session-reflector <bcp14>MUST</bcp14> set the value of the ECN field in 
+      the IP header of the reflected test packet equal to the value in the EC1
       field of the received test packet.</t>
 
       <t>Finally, the session-reflector <bcp14>MUST</bcp14> use the local policy
