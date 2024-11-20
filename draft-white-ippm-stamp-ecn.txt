@@ -4,8 +4,8 @@
 
 IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
-Intended status: Standards Track                        14 November 2024
-Expires: 18 May 2025
+Intended status: Standards Track                        20 November 2024
+Expires: 24 May 2025
 
 
  Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP
@@ -14,12 +14,14 @@ Expires: 18 May 2025
 
 Abstract
 
-   The Simple Two-Way Active Measurement Protocol (STAMP) enables path
-   measurements between IP hosts, and has a facility for defining
-   optional extensions.  This document defines a STAMP extension to
-   enable the measurement of traversal of the ECN field between two
-   STAMP hosts, and to enable measurement of paths that provide
-   differential treatment depending on the value of the ECN field.
+   The Simple Two-Way Active Measurement Protocol (STAMP) enables one-
+   way and round-trip measurement of network metrics between IP hosts,
+   and has a facility for defining optional extensions.  This document
+   defines a STAMP extension to enable the measurement of manipulation
+   of the value of the explicit congestion notification (ECN) field of
+   the IP header by middleboxes between two STAMP hosts, and to enable
+   discovery and measurement of paths that provide differential
+   treatment of packets depending on the value of their ECN field.
 
 Status of This Memo
 
@@ -36,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 May 2025.
+   This Internet-Draft will expire on 24 May 2025.
 
 Copyright Notice
 
@@ -71,14 +73,17 @@ Table of Contents
 
    Section 4.4 of [RFC8972] defines a "Class of Service TLV" extension
    for the STAMP protocol [RFC8762] which enables bi-directional
-   measurement of DSCP [RFC2474] traversal, but only allows one-way
-   measurement of ECN [RFC3168][RFC8311][RFC9331] traversal.  Since the
-   ECN field is separately meaningful in each path direction, it is
-   valuable to have the capability to perform bi-directional
+   measurement of manipulation of the differentiated services code point
+   (DSCP) field of the IP header by middleboxes [RFC2474] but only
+   allows one-way measurement of manipulation of the ECN field of the IP
+   header by [RFC3168][RFC8311][RFC9331] middleboxes.  Since the ECN
+   field of the IP header is separately meaningful in each direction, it
+   is valuable to have the capability to perform bi-directional
    measurements of ECN traversal and to have the abilty to measure path
-   characteristics that depend on the ECN codepoint.  In addition, bi-
-   directional traversal measurements are important to isolate traversal
-   issues so that remediation actions can be taken appropriately.
+   characteristics that depend on the value of the ECN codepoint.  In
+   addition, bi-directional measurements are important to isolate
+   traversal issues so that remediation actions can be taken
+   appropriately.
 
 1.1.  Requirements Language
 
@@ -111,8 +116,8 @@ Table of Contents
 
    *  Length: two-octet field; set equal to the value 4 octets
 
-   *  DSCP1: differentiated services code point intended by the session-
-      sender to be used as the DSCP value of the reflected test packet
+   *  DSCP1: DSCP value intended by the session-sender to be used as the
+      DSCP value of the reflected test packet
 
    *  EC1: ECN value intended by the session-sender to be used as the
       ECN value of the reflected test packet
@@ -124,7 +129,7 @@ Table of Contents
       session-reflector
 
    *  RP (reverse path): two-bit field; a session-sender MUST set the
-      value of the RP field to 0 on transmission.
+      value of the RP field to 0 on transmission
 
    *  Reserved: fourteen-bit field to be zeroed on transmission and
       ignored on receipt
@@ -137,9 +142,9 @@ Table of Contents
    of the IP header of the received STAMP test packet into the DSCP2
    field and EC2 field in the reflected test packet.
 
-   The session-reflector MUST set the ECN field's value in the IP header
-   of the reflected test packet equal to the value in the EC1 field of
-   the received test packet.
+   The session-reflector MUST set the value of the ECN field in the IP
+   header of the reflected test packet equal to the value in the EC1
+   field of the received test packet.
 
    Finally, the session-reflector MUST use the local policy to verify
    whether the CoS corresponding to the value of the DSCP1 field is
