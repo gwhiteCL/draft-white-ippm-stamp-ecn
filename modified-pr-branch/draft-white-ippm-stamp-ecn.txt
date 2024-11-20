@@ -18,7 +18,7 @@ Abstract
    way and round-trip measurement of network metrics between IP hosts,
    and has a facility for defining optional extensions.  This document
    defines a STAMP extension to enable the measurement of manipulation
-   of the value of the exlicit congestion notification (ECN) field of
+   of the value of the explicit congestion notification (ECN) field of
    the IP header by middleboxes between two STAMP hosts, and to enable
    discovery and measurement of paths that provide differential
    treatment of packets depending on the value of their ECN field.
@@ -72,17 +72,18 @@ Table of Contents
 1.  Introduction
 
    Section 4.4 of [RFC8972] defines a "Class of Service TLV" extension
-   for the STAMP protocol [RFC8762] which enables round-trip measurement
-   of manipulation of the differentiated services code point (DSCP)
-   field of the IP header by middleboxes [RFC2474] but only allows one-
-   way measurement of manipulation of the ECN field of the IP header by
-   [RFC3168] [RFC8311][RFC9331] middleboxes.  Since the ECN field of the
-   IP header is separately meaningful in each direction, it is valuable
-   to have the capability to perform round-trip measurements of ECN
-   traversal and to have the abilty to measure path characteristics that
-   depend on the value of the ECN codepoint.  In addition, round-trip
-   measurements are important to isolate traversal issues so that
-   remediation actions can be taken appropriately.
+   for the STAMP protocol [RFC8762] which enables bi-directional
+   measurement of manipulation of the differentiated services code point
+   (DSCP) field of the IP header by middleboxes [RFC2474] but only
+   allows one-way measurement of manipulation of the ECN field of the IP
+   header by [RFC3168][RFC8311][RFC9331] middleboxes.  Since the ECN
+   field of the IP header is separately meaningful in each direction, it
+   is valuable to have the capability to perform bi-directional
+   measurements of ECN traversal and to have the abilty to measure path
+   characteristics that depend on the value of the ECN codepoint.  In
+   addition, bi-directional measurements are important to isolate
+   traversal issues so that remediation actions can be taken
+   appropriately.
 
 1.1.  Requirements Language
 
