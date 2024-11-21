@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-19T01:49:13.734180+00:00",
+  "timestamp": "2024-11-21T01:47:55.867721+00:00",
   "repo": "gwhiteCL/draft-white-ippm-stamp-ecn",
   "labels": [
     {
@@ -56,24 +56,67 @@
       "id": "PR_kwDONPCpts6CF0ZI",
       "title": "Minor cleanups",
       "url": "https://github.com/gwhiteCL/draft-white-ippm-stamp-ecn/pull/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "hawkinsw",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "1. Use 'round-trip' instead of bi-directional -- that appears to be the language from the STAMP RFCs.\r\n2. Make acronyms explicit.\r\n3. Fix a few typos.",
       "createdAt": "2024-11-15T20:57:52Z",
-      "updatedAt": "2024-11-15T20:57:52Z",
+      "updatedAt": "2024-11-20T17:18:43Z",
       "baseRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
       "baseRefName": "main",
       "baseRefOid": "a1103f5e1f194a9b5e5a94dc4c8b834c8585eb1f",
       "headRepository": "hawkinsw/draft-white-ippm-stamp-ecn",
       "headRefName": "main",
       "headRefOid": "93e354b90569dd56f6caa271b4be1449a06efe9b",
-      "closedAt": null,
+      "closedAt": "2024-11-20T17:18:43Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
+      "comments": [
+        {
+          "author": "gwhiteCL",
+          "authorAssociation": "OWNER",
+          "body": "Thanks Will!\r\n\r\nI made a few edits to your PR in #2 and will go ahead and merge it.\r\nIn some cases I reverted round-trip to bi-directional since the two terms don't mean the same thing, and bi-directional is what was intended. ",
+          "createdAt": "2024-11-20T17:18:16Z",
+          "updatedAt": "2024-11-20T17:18:16Z"
+        },
+        {
+          "author": "gwhiteCL",
+          "authorAssociation": "OWNER",
+          "body": "closing this PR.  Changes are in #2 ",
+          "createdAt": "2024-11-20T17:18:43Z",
+          "updatedAt": "2024-11-20T17:18:43Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDONPCpts6CjxsK",
+      "title": "Minor cleanups from WH - updated",
+      "url": "https://github.com/gwhiteCL/draft-white-ippm-stamp-ecn/pull/2",
+      "state": "MERGED",
+      "author": "gwhiteCL",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "1. Use 'round-trip' instead of bi-directional -- that appears to be the language from the STAMP RFCs.\r\n2. Make acronyms explicit.\r\n3. Fix a few typos.",
+      "createdAt": "2024-11-20T16:55:00Z",
+      "updatedAt": "2024-11-20T17:28:43Z",
+      "baseRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
+      "baseRefName": "main",
+      "baseRefOid": "a1103f5e1f194a9b5e5a94dc4c8b834c8585eb1f",
+      "headRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
+      "headRefName": "modified-pr-branch",
+      "headRefOid": "ee46738dcacbb92c1a50e82e7ff6402af435212e",
+      "closedAt": "2024-11-20T17:28:43Z",
+      "mergedAt": "2024-11-20T17:28:43Z",
+      "mergedBy": "gwhiteCL",
+      "mergeCommit": {
+        "oid": "6a3c617f3e0c63c46d48cc46846c73916e0e8f8c"
+      },
       "comments": [],
       "reviews": []
     }
