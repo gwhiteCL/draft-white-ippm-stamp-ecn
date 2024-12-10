@@ -1,0 +1,249 @@
+
+
+
+
+IP Performance Measurement                                      G. White
+Internet-Draft                                                 CableLabs
+Intended status: Standards Track                        10 December 2024
+Expires: 13 June 2025
+
+
+ Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP
+                     and ECN Traversal Measurement
+                   draft-white-ippm-stamp-ecn-latest
+
+Abstract
+
+   The Simple Two-Way Active Measurement Protocol (STAMP) enables one-
+   way and round-trip measurement of network metrics between IP hosts,
+   and has a facility for defining optional extensions.  This document
+   defines a STAMP extension to enable the measurement of manipulation
+   of the value of the explicit congestion notification (ECN) field of
+   the IP header by middleboxes between two STAMP hosts, and to enable
+   discovery and measurement of paths that provide differential
+   treatment of packets depending on the value of their ECN field.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 13 June 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Requirements Language
+   2.  DSCP and ECN Traversal STAMP Extension
+   3.  Implementation Status
+   4.  IANA Considerations
+   5.  Security Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
+   Acknowledgements
+   Contributors
+   Author's Address
+
+1.  Introduction
+
+   Section 4.4 of [RFC8972] defines a "Class of Service TLV" extension
+   for the STAMP protocol [RFC8762] which enables bi-directional
+   measurement of manipulation of the differentiated services code point
+   (DSCP) field of the IP header by middleboxes [RFC2474] but only
+   allows one-way measurement of manipulation of the ECN field of the IP
+   header by [RFC3168][RFC8311][RFC9331] middleboxes.  Since the ECN
+   field of the IP header is separately meaningful in each direction, it
+   is valuable to have the capability to perform bi-directional
+   measurements of ECN traversal and to have the abilty to measure path
+   characteristics that depend on the value of the ECN codepoint.  In
+   addition, bi-directional measurements are important to isolate
+   traversal issues so that remediation actions can be taken
+   appropriately.
+
+1.1.  Requirements Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+2.  DSCP and ECN Traversal STAMP Extension
+
+   The STAMP session-sender MAY include a DSCP and ECN TLV in the STAMP
+   test packet.  The format of the TLV is presented in Figure 1.
+
+       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |STAMP TLV Flags|      Type     |           Length              |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |   DSCP1   |EC1|  DSCP2    |EC2| RP|    Reserved               |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                    Figure 1: DSCP and ECN Traversal TLV
+
+   The fields are defined as follows.
+
+   *  STAMP TLV Flags: eight-bit field; format presented in [RFC8972].
+
+   *  Type: one-octet field; value 179 allocated by this specification
+
+   *  Length: two-octet field; set equal to the value 4 octets
+
+   *  DSCP1: DSCP value intended by the session-sender to be used as the
+      DSCP value of the reflected test packet
+
+   *  EC1: ECN value intended by the session-sender to be used as the
+      ECN value of the reflected test packet
+
+   *  DSCP2: received value in the DSCP field at the ingress of the
+      session-reflector
+
+   *  EC2: received value in the ECN field at the ingress of the
+      session-reflector
+
+   *  RP (reverse path): two-bit field; a session-sender MUST set the
+      value of the RP field to 0 on transmission
+
+   *  Reserved: fourteen-bit field to be zeroed on transmission and
+      ignored on receipt
+
+   A session-reflector that receives a test packet with the DSCP and ECN
+   Traversal TLV MUST include the DSCP and ECN Traversal TLV in the
+   reflected test packet.
+
+   The session-reflector MUST copy the value of the DSCP and ECN fields
+   of the IP header of the received STAMP test packet into the DSCP2
+   field and EC2 field in the reflected test packet.
+
+   The session-reflector MUST set the value of the ECN field in the IP
+   header of the reflected test packet equal to the value in the EC1
+   field of the received test packet.
+
+   Finally, the session-reflector MUST use the local policy to verify
+   whether the CoS corresponding to the value of the DSCP1 field is
+   permitted in the domain.  If the corresponding CoS is permitted in
+   the domain, the session-reflector MUST set the DSCP field's value in
+   the IP header of the reflected test packet equal to the value of the
+   DSCP1 field of the received test packet.  If the corresponding CoS is
+   not permitted in the domain, the session-reflector MUST use the DSCP
+   value of the received STAMP packet and set the value of the RP field
+   to 1.  Upon receiving the reflected packet, if the value of the RP
+   field is 0, the session-sender will save the DSCP and ECN values for
+   analysis of the CoS in the reverse direction.  If the value of the RP
+   field in the received reflected packet is 1, only CoS in the forward
+   direction can be analyzed.
+
+3.  Implementation Status
+
+   The author is aware of two independent implementations of this STAMP
+   Extension TLV, one of which is publicly available here
+   (https://github.com/cerfcast/teaparty).
+
+4.  IANA Considerations
+
+   Add this extension to the IANA STAMP TLV Types
+   (https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-
+   types.xhtml#stamp-tlv-types-1) Registry.
+
+   *  Value = 179
+
+   *  Description = "DSCP and ECN Traversal"
+
+   *  Reference = this document
+
+5.  Security Considerations
+
+   This document should not affect the security of the Internet.
+
+6.  References
+
+6.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC2474]  Nichols, K., Blake, S., Baker, F., and D. Black,
+              "Definition of the Differentiated Services Field (DS
+              Field) in the IPv4 and IPv6 Headers", RFC 2474,
+              DOI 10.17487/RFC2474, December 1998,
+              <https://www.rfc-editor.org/info/rfc2474>.
+
+   [RFC3168]  Ramakrishnan, K., Floyd, S., and D. Black, "The Addition
+              of Explicit Congestion Notification (ECN) to IP",
+              RFC 3168, DOI 10.17487/RFC3168, September 2001,
+              <https://www.rfc-editor.org/info/rfc3168>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8762]  Mirsky, G., Jun, G., Nydell, H., and R. Foote, "Simple
+              Two-Way Active Measurement Protocol", RFC 8762,
+              DOI 10.17487/RFC8762, March 2020,
+              <https://www.rfc-editor.org/info/rfc8762>.
+
+   [RFC8972]  Mirsky, G., Min, X., Nydell, H., Foote, R., Masputra, A.,
+              and E. Ruffini, "Simple Two-Way Active Measurement
+              Protocol Optional Extensions", RFC 8972,
+              DOI 10.17487/RFC8972, January 2021,
+              <https://www.rfc-editor.org/info/rfc8972>.
+
+6.2.  Informative References
+
+   [RFC8311]  Black, D., "Relaxing Restrictions on Explicit Congestion
+              Notification (ECN) Experimentation", RFC 8311,
+              DOI 10.17487/RFC8311, January 2018,
+              <https://www.rfc-editor.org/info/rfc8311>.
+
+   [RFC9331]  De Schepper, K. and B. Briscoe, Ed., "The Explicit
+              Congestion Notification (ECN) Protocol for Low Latency,
+              Low Loss, and Scalable Throughput (L4S)", RFC 9331,
+              DOI 10.17487/RFC9331, January 2023,
+              <https://www.rfc-editor.org/info/rfc9331>.
+
+Acknowledgements
+
+   TBD
+
+Contributors
+
+   Karthik Sundaresan, William Hawkins III
+
+Author's Address
+
+   Greg White
+   CableLabs
+   858 Coal Creek Circle
+   Louisville, Colorado 80027
+   United States of America
+   Email: g.white@cablelabs.com
+   URI:   http://www.cablelabs.com
