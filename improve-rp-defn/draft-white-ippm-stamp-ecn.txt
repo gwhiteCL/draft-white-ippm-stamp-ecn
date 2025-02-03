@@ -4,8 +4,8 @@
 
 IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
-Intended status: Standards Track                        10 December 2024
-Expires: 13 June 2025
+Intended status: Standards Track                         3 February 2025
+Expires: 7 August 2025
 
 
  Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP
@@ -38,11 +38,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 June 2025.
+   This Internet-Draft will expire on 7 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -128,8 +128,10 @@ Table of Contents
    *  EC2: received value in the ECN field at the ingress of the
       session-reflector
 
-   *  RP (reverse path): two-bit field; a session-sender MUST set the
-      value of the RP field to 0 on transmission
+   *  RP (reverse path): two-bit field indicating whether the session-
+      reflector used DSCP1 or DSCP2 as the DSCP value of the reflected
+      test packet; a session-sender MUST set the value of the RP field
+      to 0 on transmission
 
    *  Reserved: fourteen-bit field to be zeroed on transmission and
       ignored on receipt
