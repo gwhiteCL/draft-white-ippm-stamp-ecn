@@ -162,7 +162,7 @@
           session-reflector</li>
         <li>EC2: received value in the ECN field at the ingress of the
           session-reflector</li>
-        <li>RP (reverse path): two-bit field; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission</li>
+        <li>RP (reverse path): two-bit field indicating whether the session-reflector used DSCP1 or DSCP2 as the DSCP value of the reflected test packet; a session-sender <bcp14>MUST</bcp14> set the value of the RP field to 0 on transmission</li>
         <li>Reserved: fourteen-bit field to be zeroed on transmission
           and ignored on receipt</li>
       </ul>
