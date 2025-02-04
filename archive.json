@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-02T01:45:20.623573+00:00",
+  "timestamp": "2025-02-04T01:41:48.103255+00:00",
   "repo": "gwhiteCL/draft-white-ippm-stamp-ecn",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDONPCpts6ol6jA",
+      "title": "Definition of RP isn't clear",
+      "url": "https://github.com/gwhiteCL/draft-white-ippm-stamp-ecn/issues/3",
+      "state": "CLOSED",
+      "author": "gwhiteCL",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "In: https://mailarchive.ietf.org/arch/msg/ippm/LO23gHKxViWMfqudW6Moiz7voME/\nBj\u00f8rn Ivar Teigen commented that the definition of the RP field wasn't clear.\n\n\nI responded with suggested changes:\nhttps://mailarchive.ietf.org/arch/msg/ippm/8RmsszkJB2j-fzU2jUiA_utyCP4/\n\nBj\u00f8rn agreed with the changes:\nhttps://mailarchive.ietf.org/arch/msg/ippm/XLKD2rAYks76EOX2_sPFZpRwxdo/",
+      "createdAt": "2025-02-03T20:57:39Z",
+      "updatedAt": "2025-02-03T21:04:08Z",
+      "closedAt": "2025-02-03T21:04:08Z",
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -116,6 +133,34 @@
       "mergedBy": "gwhiteCL",
       "mergeCommit": {
         "oid": "6a3c617f3e0c63c46d48cc46846c73916e0e8f8c"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDONPCpts6J50Me",
+      "title": "add text to RP definition",
+      "url": "https://github.com/gwhiteCL/draft-white-ippm-stamp-ecn/pull/4",
+      "state": "MERGED",
+      "author": "gwhiteCL",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #3 ",
+      "createdAt": "2025-02-03T21:01:21Z",
+      "updatedAt": "2025-02-03T21:04:20Z",
+      "baseRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
+      "baseRefName": "main",
+      "baseRefOid": "6a3c617f3e0c63c46d48cc46846c73916e0e8f8c",
+      "headRepository": "gwhiteCL/draft-white-ippm-stamp-ecn",
+      "headRefName": "improve-rp-defn",
+      "headRefOid": "55ffef07dc9948ae4552e1065ec8e553a33dec1d",
+      "closedAt": "2025-02-03T21:04:07Z",
+      "mergedAt": "2025-02-03T21:04:07Z",
+      "mergedBy": "gwhiteCL",
+      "mergeCommit": {
+        "oid": "dd85d8ad7c379d06109dc6f6b03e9f142fee2076"
       },
       "comments": [],
       "reviews": []
