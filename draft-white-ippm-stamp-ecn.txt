@@ -4,8 +4,8 @@
 
 IP Performance Measurement                                      G. White
 Internet-Draft                                                 CableLabs
-Intended status: Standards Track                         3 February 2025
-Expires: 7 August 2025
+Intended status: Standards Track                             3 June 2025
+Expires: 5 December 2025
 
 
  Simple Two-Way Active Measurement Protocol (STAMP) Extension for DSCP
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 August 2025.
+   This Internet-Draft will expire on 5 December 2025.
 
 Copyright Notice
 
@@ -174,7 +174,7 @@ Table of Contents
    (https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-
    types.xhtml#stamp-tlv-types-1) Registry.
 
-   *  Value = 179
+   *  Value = 179 (requested)
 
    *  Description = "DSCP and ECN Traversal"
 
