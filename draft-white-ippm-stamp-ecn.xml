@@ -206,7 +206,7 @@
       <t>Add this extension to the IANA <eref target="https://www.iana.org/assignments/stamp-tlv-types/stamp-tlv-types.xhtml#stamp-tlv-types-1">STAMP TLV Types</eref> Registry.</t>
 
       <ul>
-        <li>Value = 179</li>
+        <li>Value = 179 (requested)</li>
         <li>Description = "DSCP and ECN Traversal"</li>
         <li>Reference = this document</li>
       </ul>
